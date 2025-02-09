@@ -1,0 +1,267 @@
+import React, { useState } from 'react';
+import { Phone, Mail, MessageCircle, X, MapPin, Facebook, Instagram, Twitter, Youtube, ArrowRight, Check } from 'lucide-react';
+
+const Website = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const contactInfo = {
+    phone: '877-595-4773',
+    email: 'hello@gardydaddillc.com',
+    address: '1201 Dublin Road, Suite 603, Columbus, Ohio 43215',
+    social: {
+      facebook: 'https://facebook.com/gardydaddillc',
+      instagram: 'https://instagram.com/gardydaddillc',
+      tiktok: 'https://tiktok.com/gardydaddillc',
+      twitter: 'https://twitter.com/gardydaddillc',
+      youtube: 'https://youtube.com/gardydaddillc'
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className="bg-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <span className="text-xl font-bold text-gray-800">Gardy Daddi LLC</span>
+            </div>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#about" className="text-gray-600 hover:text-yellow-500">About</a>
+              <a href="#services" className="text-gray-600 hover:text-yellow-500">Services</a>
+              <a href="#contact" className="text-gray-600 hover:text-yellow-500">Contact</a>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-600 hover:text-gray-900"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <a href="#about" className="block px-3 py-2 text-gray-600 hover:text-yellow-500">About</a>
+              <a href="#services" className="block px-3 py-2 text-gray-600 hover:text-yellow-500">Services</a>
+              <a href="#contact" className="block px-3 py-2 text-gray-600 hover:text-yellow-500">Contact</a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <div className="relative bg-gray-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative z-10 pb-8 bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+              <div className="sm:text-center lg:text-left">
+                <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                  <span className="block">Your On-Demand</span>
+                  <span className="block text-yellow-500">Delivery Partner</span>
+                </h1>
+                <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                  Delivering What Matters - From everyday essentials to specialized deliveries, we're here to serve you.
+                </p>
+                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                  <div className="rounded-md shadow">
+                    <a href={`tel:${contactInfo.phone}`} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 md:py-4 md:text-lg md:px-10">
+                      <Phone className="w-5 h-5 mr-2" />
+                      Call Us
+                    </a>
+                  </div>
+                  <div className="mt-3 sm:mt-0 sm:ml-3">
+                    <a href={`mailto:${contactInfo.email}`} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-yellow-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                      <Mail className="w-5 h-5 mr-2" />
+                      Email Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section id="about" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="lg:text-center">
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              About Us
+            </h2>
+            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+              At Gardy Daddi LLC, we're committed to simplifying your life through efficient and reliable delivery and transportation services.
+            </p>
+          </div>
+
+          <div className="mt-16">
+            <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">On-Demand Delivery</h3>
+                <ul className="mt-4 space-y-4">
+                  <li className="flex items-start">
+                    <Check className="flex-shrink-0 h-6 w-6 text-yellow-500" />
+                    <p className="ml-3 text-lg text-gray-600">Grocery and Package Delivery</p>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="flex-shrink-0 h-6 w-6 text-yellow-500" />
+                    <p className="ml-3 text-lg text-gray-600">Meal Delivery</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">Specialized Delivery</h3>
+                <ul className="mt-4 space-y-4">
+                  <li className="flex items-start">
+                    <Check className="flex-shrink-0 h-6 w-6 text-yellow-500" />
+                    <p className="ml-3 text-lg text-gray-600">Time-Sensitive Deliveries</p>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="flex-shrink-0 h-6 w-6 text-yellow-500" />
+                    <p className="ml-3 text-lg text-gray-600">Luggage Retrieval</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-gray-900 text-center">
+            Why Choose Gardy Daddi LLC?
+          </h2>
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {['Reliability', 'Efficiency', 'Convenience', 'Flexibility'].map((feature) => (
+              <div key={feature} className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900">{feature}</h3>
+                <p className="mt-4 text-gray-600">
+                  We prioritize excellence in every aspect of our service delivery.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Floating Contact Component */}
+      <div className="fixed bottom-6 right-6 flex flex-col items-end z-50">
+        {/* Chat Window */}
+        {isChatOpen && (
+          <div className="mb-4 bg-white rounded-lg shadow-lg w-72 overflow-hidden">
+            <div className="bg-yellow-500 p-4 text-white flex justify-between items-center">
+              <h3 className="font-semibold">Chat with Us</h3>
+              <button onClick={() => setIsChatOpen(false)}>
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-4 h-64 bg-gray-50">
+              <div className="text-gray-600 text-sm">
+                Welcome to Gardy Daddi LLC! How can we help you today?
+              </div>
+            </div>
+            <div className="p-4 border-t">
+              <input
+                type="text"
+                placeholder="Type your message..."
+                className="w-full p-2 border rounded"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Contact Navigation Menu */}
+        {isNavOpen && (
+          <div className="mb-4 bg-white rounded-lg shadow-lg p-4 w-72">
+            <div className="space-y-4">
+              <a
+                href={`tel:${contactInfo.phone}`}
+                className="flex items-center space-x-3 text-gray-700 hover:text-yellow-500"
+              >
+                <Phone className="w-5 h-5" />
+                <span>{contactInfo.phone}</span>
+              </a>
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="flex items-center space-x-3 text-gray-700 hover:text-yellow-500"
+              >
+                <Mail className="w-5 h-5" />
+                <span>{contactInfo.email}</span>
+              </a>
+              <div className="flex items-center space-x-3 text-gray-700">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm">{contactInfo.address}</span>
+              </div>
+              
+              {/* Social Media Icons */}
+              <div className="flex space-x-4 pt-4">
+                <a href={contactInfo.social.facebook} className="text-gray-600 hover:text-blue-600">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href={contactInfo.social.instagram} className="text-gray-600 hover:text-pink-600">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href={contactInfo.social.twitter} className="text-gray-600 hover:text-blue-400">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href={contactInfo.social.youtube} className="text-gray-600 hover:text-red-600">
+                  <Youtube className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Floating Action Buttons */}
+        <div className="flex space-x-4">
+          <button
+            onClick={() => setIsChatOpen(!isChatOpen)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full shadow-lg transition-colors"
+            aria-label="Open chat"
+          >
+            <MessageCircle className="w-6 h-6" />
+          </button>
+          <button
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            className="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full shadow-lg transition-colors"
+            aria-label="Open contact navigation"
+          >
+            <Phone className="w-6 h-6" />
+          </button>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="mb-4">© 2024-2025 Gardy Daddi LLC</p>
+            <nav className="flex justify-center space-x-6">
+              <a href="/about" className="hover:text-yellow-500 transition-colors">About</a>
+              <a href="/privacy" className="hover:text-yellow-500 transition-colors">Privacy</a>
+              <a href="/terms" className="hover:text-yellow-500 transition-colors">Terms</a>
+            </nav>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Website;
